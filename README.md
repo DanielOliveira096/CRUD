@@ -24,8 +24,8 @@ Tabela principal: `pedidos (cliente, prato, quantidade, valor_total)`
 ---
 
 ## Cenário de Uso
-Imagine o cliente **Ronaldo Fernandes** chegando ao CONN:
-1. Ele pede uma **Pizza CONN** tamanho médio.  
+Imagine o cliente **Ronaldo Fernandes** chegando a um Restaurante chamado CONN:
+1. Ele pede uma **Pizza CONN: Tradicional** tamanho médio.  
 2. O atendente registra no sistema:  
    - Cliente: Ronaldo Fernandes  
    - Prato: Pizza CONN  
