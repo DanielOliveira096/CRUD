@@ -1,24 +1,25 @@
 import sqlite3
 
 # Função para criar o banco e tabela
-def database():
-    start = sqlite3.connect('collab_notebooks/database/database.db')
-    cursor = start.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS pedidos (
-            codigo INTEGER PRIMARY KEY AUTOINCREMENT,
-            cliente TEXT NOT NULL,
-            prato TEXT NOT NULL,
-            quantidade INTEGER NOT NULL,
-            valor_total REAL NOT NULL
-        )
-    ''')
-    start.commit()
-    start.close()
+# def database():
+#     start = sqlite3.connect('collab_notebooks/database/database.db')
+#     cursor = start.cursor()
+#     cursor.execute('''
+#         CREATE TABLE IF NOT EXISTS pedidos (
+#             codigo INTEGER PRIMARY KEY AUTOINCREMENT,
+#             cliente TEXT NOT NULL,
+#             prato TEXT NOT NULL,
+#             quantidade INTEGER NOT NULL,
+#             valor_total REAL NOT NULL
+#         )
+#     ''')
+#     start.commit()
+#     start.close()
+
 
 # Função Menu
 def menu():
-    database()  # garante que a tabela existe
+    #database()  # garante que a tabela existe
     while True:
         print("\n===== SISTEMA CONN =====")
         print("1 - Cadastrar pedido")
@@ -80,11 +81,11 @@ def creat_pedido():
     
     quantidade = input("Digite a quantidade: ").strip()
     try:
-        quantidade = float(quantidade)
+        quantidade = int(quantidade)
     except ValueError:
         print("Quantidade inválida!")
         return creat_pedido()
-    quantidade = int(quantidade)
+    #quantidade = int(quantidade)
     
     if not quantidade or quantidade <= 0:
         print("Quantidade inválida!")
@@ -99,6 +100,7 @@ def creat_pedido():
         print("Valor inválido!")
         return creat_pedido()
 
+    #####Método de restrição########
     #if not cliente or not prato or quantidade <= 0 or valor_total <= 0:
     #    print("Dados inválidos, pedido não cadastrado!")
     #    return creat_pedido()
