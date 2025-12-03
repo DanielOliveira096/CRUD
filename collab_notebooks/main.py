@@ -1,25 +1,25 @@
 import sqlite3
 
 # Função para criar o banco e tabela
-# def database():
-#     start = sqlite3.connect('collab_notebooks/database/database.db')
-#     cursor = start.cursor()
-#     cursor.execute('''
-#         CREATE TABLE IF NOT EXISTS pedidos (
-#             codigo INTEGER PRIMARY KEY AUTOINCREMENT,
-#             cliente TEXT NOT NULL,
-#             prato TEXT NOT NULL,
-#             quantidade INTEGER NOT NULL,
-#             valor_total REAL NOT NULL
-#         )
-#     ''')
-#     start.commit()
-#     start.close()
+def database():
+    start = sqlite3.connect('collab_notebooks/database/database.db')
+    cursor = start.cursor()
+    cursor.execute('''
+                   CREATE TABLE IF NOT EXISTS pedidos (
+                   codigo INTEGER PRIMARY KEY AUTOINCREMENT,
+                   cliente TEXT NOT NULL,
+                   prato TEXT NOT NULL,
+                   quantidade INTEGER NOT NULL,
+                   valor_total REAL NOT NULL
+                   )
+    ''')
+    start.commit()
+    start.close()
 
 
 # Função Menu
 def menu():
-    #database()  # garante que a tabela existe
+    database()  # garante que a tabela existe
     while True:
         print("\n===== SISTEMA CONN =====")
         print("1 - Cadastrar pedido")
@@ -85,7 +85,7 @@ def creat_pedido():
     except ValueError:
         print("Quantidade inválida!")
         return creat_pedido()
-    #quantidade = int(quantidade)
+    #Convertendo para inteiro e verificando se é inteiro
     
     if not quantidade or quantidade <= 0:
         print("Quantidade inválida!")
