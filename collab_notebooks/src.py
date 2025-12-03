@@ -52,10 +52,12 @@ def creat_pedido():
     elif not cliente:
         print("Campo Vazio...")
         return creat_pedido()
-    elif len(cliente) < 6:
-        print("Nome muito pequeno...")
-        return creat_pedido()
-    
+    # for i in cliente:
+    #     Full_Name = i.split() 
+    #     len(Full_Name)
+    # if len(Full_Name) == 1:
+    #     print("Insira o nome completo!")
+    #     return creat_pedido()
     prato = input("Prato: ")
     if prato.isdigit():
         print("Prato inválido!")
@@ -65,6 +67,9 @@ def creat_pedido():
         return creat_pedido()
     
     quantidade = int(input("Quantidade: "))
+    if quantidade == 0:
+        print("Campo vazio!:")
+        return creat_pedido()
     valor = float(input("Valor total: "))
 
     pedidos.append({
@@ -123,6 +128,7 @@ def update_pedido():
 def remove_pedido():
     global pedidos
     print("\n=== REMOVER PEDIDO ===")
+    print(pedidos)
     cod = int(input("Digite o código: "))
     #pedidos[:] = [p for p in pedidos if p["codigo_id"] != cod]
     if pedidos == []:
