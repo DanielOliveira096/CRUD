@@ -54,7 +54,7 @@ def menu():
 def creat_pedido():
     global codigo_id
     #global char_especial
-    #global pedidos
+    global pedidos
     print("\n=== CADASTRAR PEDIDO ===")
     cliente = []
     cliente.append(input("Cliente: "))
@@ -127,7 +127,13 @@ def creat_pedido():
         return 
 
 
-    valor = float(input("Valor total: "))
+    valor = input("Valor total: R$")
+    try:
+        valor = float(valor)
+    except TypeError:
+        print("Valor real não específicado...")
+        return creat_pedido()
+    #valor = float(valor)
 
     pedidos.append({
         "codigo_id": codigo_id,
