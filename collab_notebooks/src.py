@@ -149,7 +149,7 @@ def list_pedidos():
         for p in pedidos: # p é cada parte dos pedidos
             print(f"\nCódigo: {p['codigo_id']}") 
             print(f"\nCliente: {p['cliente']} \nPrato: {p['prato']} \nQuantidade: {p['quantidade']} \nValor: R$ {p['valor']:.2f}")
-
+    
 ##### Função buscar pedido#####
 #def buscar_pedido(cod):
 #    cod = int(input("Digite o código: "))
@@ -186,16 +186,19 @@ def remove_pedido():
     global pedidos
     print("\n=== REMOVER PEDIDO ===")
     print(pedidos)
-    cod = int(input("Digite o código: "))
+    try:
+        entrada = input("Digite o código: ")
+        cod = int(entrada)
+    except ValueError:
+        print(f"Entrada inválida! '{entrada}'.")
+        return remove_pedido()
 
     if pedidos == []:
-        print("Nenhum pedido cadastrado.")
+        print("Nenhum pedido cadastrado!")
         return menu()
+    
     elif cod > len(pedidos):
         print("Código inválido!")
-        return remove_pedido()
-    elif cod == "":
-        print("Nada informado, retornando!")
         return remove_pedido()
     
     pedidos = [p for p in pedidos if p["codigo_id"] != cod]
