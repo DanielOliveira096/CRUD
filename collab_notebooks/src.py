@@ -138,6 +138,12 @@ def creat_pedido():
     except TypeError:
         print("Valor real não específicado...")
         return creat_pedido()
+    if valor <= 0:
+        print("Entrada inválida!")
+        return creat_pedido()
+    if valor > 1000:
+        print("Valor exorbitante!")
+        return creat_pedido()
     #valor = float(valor)
 
     pedidos.append({
